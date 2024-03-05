@@ -31,10 +31,12 @@ class RegisteredUserController extends Controller
      */
     public function store(UserStoreRequest $request): RedirectResponse
     {
+        // dd($request);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => 0,
         ]);
 
         event(new Registered($user));

@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('show');
+        $this->middleware('role')->except('show');
+        // dd($this);
+    }
     /**
      * Display a listing of the resource.
      */
