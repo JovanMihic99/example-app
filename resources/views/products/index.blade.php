@@ -1,11 +1,21 @@
-<h1>Hello</h1>
+<h1>Products</h1>
 <div class="container">
     <a href="/product/create">Add new product</a>
-    <table>
+    <table >
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Availability</th>
+            <th>Amount</th>
+            <th>Image URL</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
     @foreach ($products as $product)
         <tr>
             <td>{{ $product->name }}</td>
-            <td>{{ $product->decription }}</td>
+            <td>{{ $product->description }}</td>
             <td>{{ $product->price }}</td>
             <td>{{ $product->availability }}</td>
             <td>{{ $product->amount }}</td>
@@ -23,5 +33,11 @@
     @endforeach
     </table>
 </div>
+<style>
+    table,td, th{
+        border: 1px solid black;
+    }
+   
+</style>
  
 {{ $products->links() }}
